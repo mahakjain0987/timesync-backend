@@ -9,15 +9,15 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http
-            .cors(cors -> {})   // ✅ THIS LINE IS MUST
-            .csrf(csrf -> csrf.disable())
-            .authorizeHttpRequests(auth -> auth
-                .anyRequest().permitAll()
-            );
+    http
+        .csrf(csrf -> csrf.disable())
+        .cors(cors -> {}) // keep this
+        .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/**").permitAll()
+        );
 
-        return http.build();
-    }
+    return http.build();
+}
 }
