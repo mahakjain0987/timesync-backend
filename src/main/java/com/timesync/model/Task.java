@@ -13,38 +13,15 @@ public class Task {
     private String date;
     private String time;
 
-    public Task() {}
+    // GETTERS
+    public String getId() { return id; }
+    public String getTitle() { return title; }
+    public String getDate() { return date; }
+    public String getTime() { return time; }
 
-    public Task(String title, String date) {
-        this.title = title;
-        this.date = date;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
+    // SETTERS
+    public void setId(String id) { this.id = id; }
+    public void setTitle(String title) { this.title = title; }
+    public void setDate(String date) { this.date = date; }
+    public void setTime(String time) { this.time = time; }
 }
