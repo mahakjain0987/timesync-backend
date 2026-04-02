@@ -1,5 +1,6 @@
 package com.timesync.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,13 +30,13 @@ public class SecurityConfig {
         return source;
     }
 
-    // ✅ SECURITY CONFIG (IMPORTANT)
+    // ✅ SECURITY CONFIG
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfigurationSource corsConfigurationSource) throws Exception {
 
         http
             .csrf(csrf -> csrf.disable())
-            .cors(cors -> {})   // 🔥 YAHI hai http.cors()
+            .cors(cors -> cors.configurationSource(corsConfigurationSource))
             .authorizeHttpRequests(auth -> auth
                 .anyRequest().permitAll()
             );
